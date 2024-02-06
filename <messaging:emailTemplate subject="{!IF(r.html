@@ -1,0 +1,191 @@
+<messaging:emailTemplate subject="{!IF(relatedTo.Account.Organization__c = 'AAA','AAA Certificate of Monitoring' ,'A3 Certificate of Monitoring')}" recipientType="Contact" relatedToType="WorkOrder" >
+<messaging:htmlEmailBody >
+    <style>
+        a:link {
+        text-decoration: none;
+        }
+        a:visited {
+        text-decoration: none;
+        }
+        a:hover {
+        text-decoration: underline;
+        }
+        a:active {
+        text-decoration: underline;
+        }
+  
+            
+            .no-padding {
+            padding: 0 !important;
+            }
+            .no-margin {
+            margin: 0 !important;
+            }
+            .full-width {
+            width: 100%;
+            }
+            .half-width {
+            width: calc(50% - 12px);
+            float: left;
+            }
+            .mid-div {
+            width: 24px;
+            }
+            .border-1 {
+            border: 5px solid red;;
+            box-sizing: border-box;
+            padding: 5px;
+            margin-left: 381px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 132px;
+            }
+            .rotated {
+            writing-mode: tb-rl;
+            transform: rotate(-180deg);
+            }
+            /* Style to position the image in the top left corner */
+            .logo {
+            position: absolute;
+            top: 2;
+            left: 21;
+            }
+            
+            .bottom-right-container {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            padding: 10px;
+            background-color: #f0f0f0; /* Optional background color */
+            }
+            /* Animation to switch between red and blue border */
+            @keyframes borderAnimation {
+            50%, 50% {
+            border-color: red;
+            }
+            50% {
+            border-color: blue;
+            }
+            }
+            
+            /* Apply the animation to the body element */
+            // body {
+            //     animation: borderAnimation 1s infinite; /* Adjust the timing as needed */
+            //     }
+            
+            table, th, td {
+            border: 0px solid black;
+            border-collapse: collapse;
+            }
+            th, td {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 5px;
+            padding-right:5px;
+            }
+            
+            
+        </style>
+    
+  
+        
+        <!--<div style="width: 650px;font-size:16px">
+            *Only applies to equipment purchases. Monthly installment price and financing is subject to credit check and based on qualifying credit score, otherwise equipment must be paid for upfront. 
+            Monthly monitoring plan required. Installation or shipping fees apply.
+            <br/><br/>
+            Alarm License No. CA ACO 7976; AZ BTR 18658-0; UT 10685724-6501; MT FPL-BEL-001390
+        </div>-->
+        <br/>  
+   <footer role="contentinfo"  class="slds-p-around_large" >
+        <div class="slds-grid slds-grid_align-spread" style="font-size:14px; text-align: left; margin: 0px 70px 0px;">
+            <p class="slds-col">© 2023 A3 Smart Home LP All rights reserved. </p>
+        </div>
+        
+    
+        
+        
+        
+        
+        
+        <div class="full-width" style="display: inline-flex" >
+            <div class="half-width border-1">
+                <div class="full-width"></div>
+                
+                <div class="logo">
+                    <c:COM_WO_templateheader quoteAccountName="{!relatedTo.account.Name}" 
+                                             isA3="{!IF(relatedTo.account.Organization__c = 'A3',true,false)}"/> 
+                </div>
+                
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                <br/><br/><br/><br/><br/>
+                <p>
+                    This certifies that the customer indicated below is current with A3 Smart Home Security and that the location is monitored for the following services by our UL listed monitoring station.
+               
+                </p>
+                <br/><br/>
+                
+
+Security/Burglary   &nbsp; &nbsp;     Monitored Smoke Detection<br/>
+
+24 Hour Monitoring. &nbsp; &nbsp;    Monitored Flood Detection<br/>
+
+                
+                <table style="width:100%">
+                    <tr>
+                        <th>Monitored Address :</th>
+                        <th>Monitoring effective Date Address :</th> 
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            {!relatedTo.Account.shippingStreet}<br/>
+                            {!relatedTo.Account.shippingCity}<br/>
+                            {!relatedTo.Account.shippingState}<br/>
+                            {!relatedTo.Account.shippingPostalCode}<br/>
+                            {!relatedTo.Account.shippingcountry}
+                        </td>
+                        <td>{!relatedTo.Account.shippingStreet}<br/>
+                            {!relatedTo.Account.shippingCity}<br/>
+                            {!relatedTo.Account.shippingState}<br/>
+                            {!relatedTo.Account.shippingPostalCode}<br/>
+                            {!relatedTo.Account.shippingcountry}</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td></td>
+                        <td><b> Certification Date:</b> </td>
+                        
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>24/09/98</td>
+                        
+                    </tr>
+                </table>
+                
+                
+                
+                <div style="float :right">
+                    <table>
+                        
+                        <tr>
+                            
+                            <td> <apex:image url=" https://a3smarthome--prodcopy.sandbox.file.force.com/servlet/servlet.ImageServer?id=01504000000hQ8J&oid=00D040000004eGW&lastMod=1691525528000"  
+                                             style="align:center"/></td>
+                            <td> <b>A3 Smart Home Security </b> <br/>8132 S Hady Dr, Suit 104<br/> Tempe,AZ 85284</td>
+                        </tr>
+                        
+                        
+                    </table>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+
+    </footer>
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>
